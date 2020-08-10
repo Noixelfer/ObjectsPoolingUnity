@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TurretBullet : MonoBehaviour
+public class TurretBullet : PoolableObject
 {
 	private const float MAX_DISTANCE_SQUARED = 900f;
 
@@ -16,14 +16,21 @@ public class TurretBullet : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if ((transform.position - initialPosition).sqrMagnitude >=  MAX_DISTANCE_SQUARED)
+		if ((transform.position - initialPosition).sqrMagnitude >= MAX_DISTANCE_SQUARED)
 		{
-			Destroy(gameObject);
+			InvokeOnDestory();
 		}
+	}
+
+	public override void ResetState()
+	{
+		base.ResetState();
+		Rigidbody.velocity = Vector3.zero;
+		Rigidbody.angularVelocity = Vector3.zero;
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		Destroy(gameObject);
+		InvokeOnDestory();
 	}
 }

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "test",
+    "prefabPath": "Prefabs/Bullet",
+    "initialSize": 100,
+    "maximumSize": 100,
+    "prewarm": true
+  }
+]

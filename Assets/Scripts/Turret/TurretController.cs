@@ -15,6 +15,7 @@ public class TurretController : MonoBehaviour
 
 	private void Awake()
 	{
+		var a = ObjectsPooler.Instance;
 		turretBulletPrefab = Resources.Load<TurretBullet>(BULLET_PATH);
 	}
 
@@ -39,8 +40,8 @@ public class TurretController : MonoBehaviour
 
 	private void Attack()
 	{
-		var bullet1 = Instantiate(turretBulletPrefab, cannon1.CannonExit.position, Quaternion.identity);
-		var bullet2 = Instantiate(turretBulletPrefab, cannon2.CannonExit.position, Quaternion.identity);
+		var bullet1 = ObjectsPooler.Instance.Get("test", cannon1.transform.position).GetComponent<TurretBullet>();
+		var bullet2 = ObjectsPooler.Instance.Get("test", cannon2.transform.position).GetComponent<TurretBullet>();
 
 		bullet1.transform.up = cannon1.transform.forward;
 		bullet2.transform.up = cannon2.transform.forward;
