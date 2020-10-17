@@ -40,8 +40,8 @@ public class TurretController : MonoBehaviour
 
 	private void Attack()
 	{
-		var bullet1 = ObjectsPooler.Instance.Get("test", cannon1.transform.position).GetComponent<TurretBullet>();
-		var bullet2 = ObjectsPooler.Instance.Get("test", cannon2.transform.position).GetComponent<TurretBullet>();
+		var bullet1 = ObjectsPooler.Instance.Get("bullet", cannon1.transform.position).GetComponent<TurretBullet>();
+		var bullet2 = ObjectsPooler.Instance.Get("bullet", cannon2.transform.position).GetComponent<TurretBullet>();
 
 		bullet1.transform.up = cannon1.transform.forward;
 		bullet2.transform.up = cannon2.transform.forward;

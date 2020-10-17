@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class ObjectsPooler : MonoBehaviour
 {
-	private const int MAX_OBJECTS_PER_FRAME = 388;
+	private const int MAX_OBJECTS_PER_FRAME = 300;
 	private const bool VERBOSE = true;
 	private const float DELAY_BETWEEN_LOGS = 1f;
 	private static ObjectsPooler instance;
